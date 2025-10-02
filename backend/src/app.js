@@ -11,6 +11,7 @@ app.use(cors({ origin: 'http://localhost:5173' }));
 
 // Routes
 app.post('/api/v0/register', auth.Register);
+app.put('/api/v0/register/userInfo', auth.collectUserInfo);
 app.post('/api/v0/login', auth.Login);
 app.post('/api/v0/ai/generatePlan', ai.Message);
 

@@ -8,7 +8,7 @@ import { Box, CssBaseline } from '@mui/material';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
-
+  const [registered, setRegistered] = useState(false);
   useEffect(() => {
     const token = localStorage.getItem('authToken');
     if (!token) {
@@ -26,6 +26,8 @@ function App() {
           value={{
             // loggedIn,
             setLoggedIn,
+            registered,
+            setRegistered,
           }}
         >
           <Routes>

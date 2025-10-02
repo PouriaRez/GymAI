@@ -13,6 +13,14 @@ export const Register = async (req, res) => {
   res.status(201).send();
 };
 
+export const collectUserInfo = async (req, res) => {
+  const { age, height, weight, frequency, goals } = req.body;
+
+  const result = await db.updateUserInfo(age, height, weight, frequency, goals);
+
+  res.status(200).send();
+};
+
 export const Login = async (req, res) => {
   const { username, password } = req.body;
 

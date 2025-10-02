@@ -59,3 +59,11 @@ export const loginAccount = async (username, password) => {
   }
   return [rows[0].id, username];
 };
+
+export const updateUserInfo = async (
+  age,
+  height,
+  weight,
+  frequency,
+  goals
+) => {};

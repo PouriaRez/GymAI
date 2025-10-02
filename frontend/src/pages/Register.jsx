@@ -1,7 +1,10 @@
 import { Box, Button, FormControl, TextField } from '@mui/material';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import ContextProvider from '../context/contextProvider';
 import { useNavigate } from 'react-router';
+import UserInfo from './UserInfo';
 const Register = () => {
+  const { registered, setRegistered } = useContext(ContextProvider);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [err, setErr] = useState('');
@@ -33,7 +36,7 @@ const Register = () => {
           setErr({ message: 'Please enter a valid username and password' });
           return;
         }
-        nav('/login');
+        setRegistered(true);
       },
       (error) => {
         setErr(error);
@@ -41,7 +44,7 @@ const Register = () => {
     );
   };
 
-  return (
+  return !registered ? (
     <Box
       sx={{
         display: 'flex',
@@ -51,7 +54,6 @@ const Register = () => {
         gap: 2,
         height: '50vh',
       }}
-      x
     >
       <FormControl>
         <TextField
@@ -85,6 +87,8 @@ const Register = () => {
       </Button>
       <Button onClick={handleLoginRedirect}>Already have an account?</Button>
     </Box>
+  ) : (
+    <UserInfo />
   );
 };
 
