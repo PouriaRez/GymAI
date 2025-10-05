@@ -6,7 +6,7 @@
 
 ## Features
 
-- **AI-Powered Workout Plans**: Generates personalized 6-day workout routines based on user goals, age, height, weight, and workout frequency.
+- **AI-Powered Workout Plans**: Generates personalized x-day workout routines based on user goals, age, height, weight, and workout frequency.
 - **Instructional Videos**: Includes links and videos for exercises to help beginners learn proper form.
 - **AI Chatbot**: Ask fitness-related questions and get instant AI-generated guidance.
 - **Calorie Tracking**: Log meals and track calorie intake to align with your fitness goals.
