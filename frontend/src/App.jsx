@@ -9,6 +9,8 @@ import { Box, CssBaseline } from '@mui/material';
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [registered, setRegistered] = useState(false);
+  const [username, setUsername] = useState('');
+
   useEffect(() => {
     const token = localStorage.getItem('authToken');
     if (!token) {
@@ -28,6 +30,8 @@ function App() {
             setLoggedIn,
             registered,
             setRegistered,
+            username,
+            setUsername,
           }}
         >
           <Routes>

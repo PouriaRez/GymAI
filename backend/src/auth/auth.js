@@ -14,11 +14,16 @@ export const Register = async (req, res) => {
 };
 
 export const collectUserInfo = async (req, res) => {
-  const { age, height, weight, frequency, goals } = req.body;
+  try {
+    const { username, age, height, weight, frequency, goals } = req.body;
 
-  const result = await db.updateUserInfo(age, height, weight, frequency, goals);
+    await db.updateUserInfo(username, age, height, weight, frequency, goals);
 
-  res.status(200).send();
+    res.status(200).json({ message: 'User updated successfully' });
+  } catch (err) {
+    console.error('SQL error:', err);
+    res.status(500).json({ error: 'Database update failed' });
+  }
 };
 
 export const Login = async (req, res) => {

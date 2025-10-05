@@ -61,9 +61,31 @@ export const loginAccount = async (username, password) => {
 };
 
 export const updateUserInfo = async (
+  username,
   age,
   height,
   weight,
   frequency,
   goals
-) => {};
+) => {
+  const update = `UPDATE account
+                  SET data = data ||  
+                  jsonb_build_object(
+                      'age', $1::jsonb,
+                      'height', $2::jsonb,
+                      'weight', $3::jsonb,
+                      'frequency', $4::jsonb,
+                      'goals', $5::jsonb
+                  )
+                  WHERE data->>'username' = $6
+                  `;
+  const values = [
+    JSON.stringify(age),
+    JSON.stringify(height),
+    JSON.stringify(weight),
+    JSON.stringify(frequency),
+    JSON.stringify(goals),
+    username,
+  ];
+  await pool.query(update, values);
+};

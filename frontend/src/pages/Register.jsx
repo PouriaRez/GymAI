@@ -4,8 +4,8 @@ import ContextProvider from '../context/contextProvider';
 import { useNavigate } from 'react-router';
 import UserInfo from './UserInfo';
 const Register = () => {
-  const { registered, setRegistered } = useContext(ContextProvider);
-  const [username, setUsername] = useState('');
+  const { registered, setRegistered, username, setUsername } =
+    useContext(ContextProvider);
   const [password, setPassword] = useState('');
   const [err, setErr] = useState('');
   const nav = useNavigate();
